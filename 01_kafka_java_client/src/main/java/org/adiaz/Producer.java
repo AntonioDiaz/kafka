@@ -5,6 +5,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
+import java.time.LocalDateTime;
 import java.util.Properties;
 
 public class Producer {
@@ -18,7 +19,7 @@ public class Producer {
     // producer factory
     KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(properties);
     String key = "key1";
-    String value = "Diego Simeone";
+    String value = "Diego Simeone ->" + LocalDateTime.now().toString();
     ProducerRecord<String, String> record = new ProducerRecord<>(Consts.KAFKA_TOPIC, key, value);
     kafkaProducer.send(record);
     // producer publish message

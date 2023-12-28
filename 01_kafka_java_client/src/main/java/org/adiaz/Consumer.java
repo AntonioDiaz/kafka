@@ -19,7 +19,7 @@ public class Consumer {
       properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, Consts.KAFKA_BOOTSTRAP);
       properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
       properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-      properties.put(ConsumerConfig.GROUP_ID_CONFIG, "MY_CONSUMER");
+      properties.put(ConsumerConfig.GROUP_ID_CONFIG, UUID.randomUUID().toString());
       properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
       KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(properties);
       TopicPartition partition0 = new TopicPartition(Consts.KAFKA_TOPIC, 0);
