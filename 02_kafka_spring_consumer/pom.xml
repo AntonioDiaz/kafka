@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.adiaz</groupId>
-	<artifactId>kafka-spring-client</artifactId>
+	<artifactId>kafka-spring-consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kafka-spring-client</name>
-	<description>kafka spring client example</description>
+	<name>kafka-spring-consumer</name>
+	<description>kafka spring consumer example</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

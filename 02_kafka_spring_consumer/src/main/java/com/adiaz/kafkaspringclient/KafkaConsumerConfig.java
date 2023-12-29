@@ -1,4 +1,4 @@
-package com.adiaz.kafkaspringclient.config;
+package com.adiaz.kafkaspringclient;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.beans.factory.annotation.Value;
