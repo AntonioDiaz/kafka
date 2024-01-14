@@ -69,6 +69,12 @@ kafka-topics.sh \
   --topic example-topic \
   --bootstrap-server localhost:29092
 ```
+* Delete topic
+```shell
+kafka-topics.sh \
+  --bootstrap-server localhost:9092 \
+  --topic first_topic
+```
 
 * Publish message on a topic
 ```shell
