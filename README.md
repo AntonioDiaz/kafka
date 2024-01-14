@@ -57,13 +57,35 @@ Example consumer and producer.
 
 * Show topics
 ```shell
-kafka-topics.sh --list  --bootstrap-server localhost:29092
+kafka-topics.sh \
+  --list \
+  --bootstrap-server localhost:29092
 ```
 
-* Create topic command
+* Create topic
 ```shell
  kafka-topics.sh \
   --create \
-  --topic topic-grettings \
+  --topic example-topic \
   --bootstrap-server localhost:29092
+```
+
+* Publish message on a topic
+```shell
+kafka-console-producer.sh \
+  --bootstrap-server localhost:29092 \
+  --topic example-topic \
+  --property parse.key=true \
+  --property key.separator=:
+```
+
+* Consuming messages
+```shell
+kafka-console-consumer.sh \
+  --topic example-topic \
+  --bootstrap-server localhost:29092 \
+  --from-beginning \
+  --property print.key=true \
+  --property key.separator="-" \
+  --partition 0
 ```
