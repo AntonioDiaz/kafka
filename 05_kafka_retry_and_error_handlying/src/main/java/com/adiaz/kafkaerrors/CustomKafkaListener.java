@@ -23,9 +23,11 @@ public class CustomKafkaListener {
 
   //blocking example
 
-//  @RetryableTopic(kafkaTemplate = "kafkaTemplate", attempts = "4",
-//          backoff = @Backoff(delay = 5000, maxDelay = 15000))
-//  @KafkaListener(topics = "${topic_name}")
+  @RetryableTopic(
+          kafkaTemplate = "kafkaTemplate",
+          attempts = "4",
+          backoff = @Backoff(delay = 5000, maxDelay = 15000))
+  @KafkaListener(topics = "${topic_name}")
   public void listenWithHeaders(
           @Header(KafkaHeaders.RECEIVED_TOPIC) String receivedTopic,
           ConsumerRecord<String, String> record) {
@@ -39,12 +41,8 @@ public class CustomKafkaListener {
     log.info("Received Message: " + record);
   }
 
-
-
   public static List<String> getMessages() {
     return messages;
   }
-
-
 
 }
