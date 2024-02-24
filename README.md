@@ -39,11 +39,15 @@ Example consumer and producer.
 * https://www.baeldung.com/java-kafka-consumer-api-read
 
 ## 02 - Kafka Spring consumer
-Kafka consumer using [Kafka Spring Project](https://spring.io/projects/spring-kafka) 
+Example of Kafka consumer using [Kafka Spring Project](https://spring.io/projects/spring-kafka) 
 * https://www.baeldung.com/spring-kafka
 
 ## 03 - Kafka Spring producer
+Example of Kafka consumer using [Kafka Spring Project](https://spring.io/projects/spring-kafka)
 * https://www.baeldung.com/spring-kafka
+
+![image](https://github.com/AntonioDiaz/kafka/assets/725743/397637e1-b44f-4a1f-bc77-70289e983d10)
+
 
 ## 04 - Kafka Custom Serializer
 * https://howtodoinjava.com/kafka/spring-boot-jsonserializer-example/
