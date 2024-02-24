@@ -7,7 +7,8 @@
   * [03 - Kafka Spring producer](#03---kafka-spring-producer)
   * [04 - Kafka Custom Serializer](#04---kafka-custom-serializer)
   * [05 - Kafka Retry and Error Handling](#05---kafka-retry-and-error-handling)
-  * [Kafka cheatsheet](#kafka-cheatsheet)
+  * [Run on local environment](#run-on-local-environment)
+  * [Kafka commands](#kafka-commands)
 <!-- TOC -->
 
 ## Concepts
@@ -35,7 +36,6 @@
 ## 01 - Kafka java client
 [README](https://github.com/AntonioDiaz/kafka/blob/53bfc171550112706b54851a9f9c8f33c8aef244/01_kafka_java_client/README.md)
 
-
 ## 02 - Kafka Spring consumer
 * https://www.baeldung.com/spring-kafka
 
@@ -49,48 +49,86 @@
 * https://tech4gods.com/spring-kafka-retry-and-error-handling-guide/#2_Prerequisites_and_Setup
 * https://www.baeldung.com/spring-retry-kafka-consumer
 
-## Kafka cheatsheet
-* Start broker container 
+## Run on local environment 
+* Install Apache Kafka: https://kafka.apache.org/downloads
+* Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+* Start a container with a Kafka broker, using docker-compose.yml
+    ````shell
+    docker compose up -d
+    ````
 
-![image](https://github.com/AntonioDiaz/kafka/assets/725743/bda6c589-47b7-41ea-a302-24ba2007fe16)
+  ![image](https://github.com/AntonioDiaz/kafka/assets/725743/bda6c589-47b7-41ea-a302-24ba2007fe16)
+
+## Kafka commands
 
 * Show topics
-```shell
-kafka-topics.sh \
-  --list \
-  --bootstrap-server localhost:29092
-```
+  ```shell
+  kafka-topics.sh \
+    --list \
+    --bootstrap-server localhost:29092
+  ```
+
+* Delete topic
+  ```shell
+  kafka-topics.sh \
+    --delete \
+    --bootstrap-server localhost:29092 \
+    --topic example-topic
+  ```
 
 * Create topic
-```shell
- kafka-topics.sh \
-  --create \
-  --topic example-topic \
-  --bootstrap-server localhost:29092
-```
-* Delete topic
-```shell
-kafka-topics.sh \
-  --bootstrap-server localhost:9092 \
-  --topic first_topic
-```
-
+  ```shell
+   kafka-topics.sh \
+    --create \
+    --topic example-topic \
+    --bootstrap-server localhost:29092
+  ```
+  
 * Publish message on a topic
-```shell
-kafka-console-producer.sh \
-  --bootstrap-server localhost:29092 \
-  --topic example-topic \
-  --property parse.key=true \
-  --property key.separator=:
-```
+  ```shell
+  kafka-console-producer.sh \
+    --bootstrap-server localhost:29092 \
+    --topic example-topic \
+    --property parse.key=true \
+    --property key.separator=-
+  ```
 
 * Consuming messages
-```shell
-kafka-console-consumer.sh \
-  --topic example-topic \
-  --bootstrap-server localhost:29092 \
-  --from-beginning \
-  --property print.key=true \
-  --property key.separator="-" \
-  --partition 0
-```
+  ```shell
+  kafka-console-consumer.sh \
+    --topic example-topic \
+    --bootstrap-server localhost:29092 \
+    --from-beginning \
+    --property print.key=true \
+    --property key.separator=" - " \
+    --property print.partition=true \
+    --property print.offset=true \
+    --group customer_application
+  ```
+  
+* Show Consumer groups
+  ```shell
+  kafka-consumer-groups.sh \
+    --bootstrap-server localhost:29092 \
+    --list
+  ```
+
+* Show current offset of a consumer group
+  ```shell
+  kafka-consumer-groups.sh \
+    --bootstrap-server localhost:29092 \
+    --group customer_application \
+    --describe
+  ```
+
+* Update offset for consumer group and topic
+  ```shell
+  kafka-consumer-groups.sh \
+    --bootstrap-server localhost:29092 \
+    --group customer_application \
+    --topic example-topic \
+    --reset-offsets \
+    --to-earliest \
+    --execute
+  ```
+
