@@ -34,9 +34,12 @@
 
 
 ## 01 - Kafka java client
-[README](https://github.com/AntonioDiaz/kafka/blob/53bfc171550112706b54851a9f9c8f33c8aef244/01_kafka_java_client/README.md)
+Example consumer and producer.
+* https://developer.confluent.io/tutorials/kafka-console-consumer-read-specific-offsets-partitions/kafka.html
+* https://www.baeldung.com/java-kafka-consumer-api-read
 
 ## 02 - Kafka Spring consumer
+Kafka consumer using [Kafka Spring Project](https://spring.io/projects/spring-kafka) 
 * https://www.baeldung.com/spring-kafka
 
 ## 03 - Kafka Spring producer
