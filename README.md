@@ -7,6 +7,7 @@
   * [03 - Kafka Spring producer](#03---kafka-spring-producer)
   * [04 - Kafka Custom Serializer](#04---kafka-custom-serializer)
   * [05 - Kafka Retry and Error Handling](#05---kafka-retry-and-error-handling)
+  * [06 - Kafka wikimedia producer](#06---kafka-wikimedia-producer)
   * [Run on local environment](#run-on-local-environment)
   * [Kafka commands](#kafka-commands)
 <!-- TOC -->
@@ -54,6 +55,9 @@ Example of Kafka consumer using [Kafka Spring Project](https://spring.io/project
 ## 05 - Kafka Retry and Error Handling
 * https://tech4gods.com/spring-kafka-retry-and-error-handling-guide/#2_Prerequisites_and_Setup
 * https://www.baeldung.com/spring-retry-kafka-consumer
+
+## 06 - Kafka wikimedia producer
+Example from udemy course: https://www.udemy.com/course/apache-kafka/
 
 ## Run on local environment 
 * Install Apache Kafka: https://kafka.apache.org/downloads
