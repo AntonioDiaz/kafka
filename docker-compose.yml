@@ -1,11 +1,29 @@
 version: '2'
 services:
+  opensearch:
+    image: opensearchproject/opensearch:1.2.4
+    environment:
+      discover.type: single-node
+      plugins.security.disabled: true
+      compatibility.override_main_response_version: true
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+
+  opensearch-dashboards:
+      image: opensearchproject/opensearch-dashboards:1.2.0
+      ports:
+        - "5601:5601"
+      environment:
+        OPENSEARCH_HOST: '["http://opensearch:9200"]'
+        DISABLE_SECURITY_DASHBOARDS_PLUGIN: "true"
+
   broker:
     image: confluentinc/cp-kafka:7.4.1
     hostname: broker
     container_name: broker
     ports:
-    - 29092:29092
+    - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
