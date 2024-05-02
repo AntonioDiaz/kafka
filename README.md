@@ -153,3 +153,11 @@ Example from udemy course: https://www.udemy.com/course/apache-kafka/
     --execute
   ```
 
+## Partition assignment example
+Target Partition
+```
+targetPartition = Math.abs(Utils.murmur2(keyBytes)) % (numPartitions -1)
+```
+Murmur2 java example [here](https://github.com/AntonioDiaz/kafka/blob/3085d5f6faa3bf8bfe8d51bc19c98d8f55d5d613/01_kafka_java_client/src/main/java/org/adiaz/TestingMurmur.java)
+
+![image](https://github.com/AntonioDiaz/kafka/assets/725743/bf5be869-49f4-4bd4-b62f-0ac713576076)
