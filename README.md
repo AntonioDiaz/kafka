@@ -74,25 +74,36 @@ Example from udemy course: https://www.udemy.com/course/apache-kafka/
 * Show topics
   ```shell
   kafka-topics.sh \
-    --list \
-    --bootstrap-server localhost:29092
+    --bootstrap-server localhost:29092 \
+    --list 
   ```
 
 * Delete topic
   ```shell
   kafka-topics.sh \
-    --delete \
     --bootstrap-server localhost:29092 \
+    --delete \
     --topic example-topic
   ```
 
 * Create topic
   ```shell
    kafka-topics.sh \
-    --create \
+    --bootstrap-server localhost:29092 \
     --topic example-topic \
-    --bootstrap-server localhost:29092
+    --create \
+    --partitions 2
   ```
+  
+* Topic details
+  ```shell
+   kafka-topics.sh \
+    --bootstrap-server localhost:29092 \
+    --describe \
+    --topic example-topic
+  ```
+  
+
   
 * Publish message on a topic
   ```shell
@@ -106,8 +117,8 @@ Example from udemy course: https://www.udemy.com/course/apache-kafka/
 * Consuming messages
   ```shell
   kafka-console-consumer.sh \
-    --topic example-topic \
     --bootstrap-server localhost:29092 \
+    --topic example-topic \
     --from-beginning \
     --property print.key=true \
     --property key.separator=" - " \
